@@ -4,7 +4,8 @@ export class DataScraping{
         private linkImage: string,
         private longDescription: string,
         private allContent: string,
-        private words: number){
+        private words: number,
+        private sentiment: string){
         this.title = title;
         this.short_description = short_description;
         this.linkToPost = linkToPost;
@@ -12,6 +13,7 @@ export class DataScraping{
         this.longDescription = longDescription;
         this.allContent = allContent;
         this.words = words;
+        this.sentiment = sentiment;
     }
 
     get getTitle(){
@@ -40,5 +42,9 @@ export class DataScraping{
 
     get getWords(){
         return this.words;
+    }
+
+    get getSentiment(){
+        return this.sentiment;
     }
 }

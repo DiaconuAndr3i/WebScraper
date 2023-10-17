@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DataScraping = void 0;
 class DataScraping {
-    constructor(title, short_description, linkToPost, linkImage, longDescription, allContent, words) {
+    constructor(title, short_description, linkToPost, linkImage, longDescription, allContent, words, sentiment) {
         this.title = title;
         this.short_description = short_description;
         this.linkToPost = linkToPost;
@@ -10,6 +10,7 @@ class DataScraping {
         this.longDescription = longDescription;
         this.allContent = allContent;
         this.words = words;
+        this.sentiment = sentiment;
         this.title = title;
         this.short_description = short_description;
         this.linkToPost = linkToPost;
@@ -17,6 +18,7 @@ class DataScraping {
         this.longDescription = longDescription;
         this.allContent = allContent;
         this.words = words;
+        this.sentiment = sentiment;
     }
     get getTitle() {
         return this.title;
@@ -38,6 +40,9 @@ class DataScraping {
     }
     get getWords() {
         return this.words;
+    }
+    get getSentiment() {
+        return this.sentiment;
     }
 }
 exports.DataScraping = DataScraping;
