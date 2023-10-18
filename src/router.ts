@@ -4,7 +4,7 @@ import {scrapeFunction } from "./controller";
 
 const router = Router();
 
-router.get('/', scrapeFunction);
+router.post('/', scrapeFunction);
 
 export default router;
 

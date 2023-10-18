@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scraper</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .spinner {
+            border: 10px solid #f3f3f3;
+            border-top: 10px solid #3498db; /* Blue */
+            border-right: 10px solid #f39c12; /* Yellow */
+            border-bottom: 10px solid #e74c3c; /* Red */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spinner 2s linear infinite;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div class="text-center">
+        <h1 class="text-4xl font-bold mb-4">Web Scraper</h1>
+        <div class="flex flex-row items-center justify-center mb-4">
+            <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-l-full">
+                🔍
+            </button>
+            <input type="text" placeholder="Enter URL here" aria-label="Full name" class="rounded-r-full px-6 py-3 w-64 focus:outline-none">
+        </div>
+    </div>
+    <div class="w-full max-w-xl mx-auto">
+        <h2 class="text-2xl font-bold mb-2 text-center">Results</h2>
+        <!-- The JSON results will be displayed here -->
+        <div id="results" class="text-left bg-white rounded shadow whitespace-pre-wrap"></div>
+    </div>
+
+    <!-- Loading screen -->
+    <div id="loading" class="fixed top-20 left-0 w-full h-full flex items-center justify-center bg-white opacity-75 z-50 hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        var loadingScreen = document.querySelector('#loading');
+        var resultsContainer = document.querySelector('#results');
+
+        document.querySelector('button').addEventListener('click', function() {
+            var url = document.querySelector('input').value;
+            // Show the loading screen
+            loadingScreen.classList.remove('hidden');
+            fetch('http://localhost:3000/scrape/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ url: url }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                resultsContainer.innerHTML = ''; // Clear the results container
+                data.forEach(item => {
+                    // Create a pre element for the JSON data
+                    var pre = document.createElement('pre');
+                    var jsonStr = JSON.stringify(item, null, 2);
+                    var jsonHtml = jsonStr.replace(/"([^"]+)":/g, '<span class="text-blue-500">"$1":</span>'); // Wrap field names in span
+                    pre.innerHTML = jsonHtml;
+                    pre.className = 'p-4'; // Add padding
+                    pre.style.whiteSpace = 'pre-wrap';
+                    pre.style.wordWrap = 'break-word';
+                    resultsContainer.appendChild(pre);
+
+                    // Create an img element for the image
+                    if (item.linkImage) {
+                        var img = document.createElement('img');
+                        img.src = item.linkImage;
+                        img.style.maxWidth = '100%'; // Make sure the image doesn't overflow the container
+                        img.className = 'p-4'; // Add padding
+                        resultsContainer.appendChild(img);
+                    }
+                });
+                // Hide the loading screen
+                loadingScreen.classList.add('hidden');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                // Hide the loading screen in case of error
+                loadingScreen.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
