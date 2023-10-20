@@ -19,7 +19,7 @@ A small service api built with typescript and express for web service along with
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/DiaconuAndr3i/WebScraper#running-through-docker
 ```
 
 Go to the project directory
@@ -56,6 +56,6 @@ For creating a container from the image
 
 ## Open web browser and type [localhost:3000](http://localhost:3000)
 
-![img1](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![img1](https://github.com/DiaconuAndr3i/WebScraper#running-through-docker/images/img1.png)
 
-![img2](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![img2](https://github.com/DiaconuAndr3i/WebScraper#running-through-docker/images/img2.png)
