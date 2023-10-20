@@ -1,6 +1,6 @@
 # WebScraper
 
-A small service api built with typescript and express for web service along with node.js for scraping data from the website https://wsa-test.vercel.app/. For scraping part it was used [Puppeteer](https://pptr.dev/) library from node.js.
+A small service api built with typescript and express for web service along with node.js, for scraping data from the website https://wsa-test.vercel.app/. For scraping part it was used [Puppeteer](https://pptr.dev/) library from node.js.
 
 ## API Reference
 
