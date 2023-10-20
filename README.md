@@ -56,6 +56,6 @@ For creating a container from the image
 
 ## Open web browser and type [localhost:3000](http://localhost:3000)
 
-![img1](https://github.com/DiaconuAndr3i/WebScraper#running-through-docker/images/img1.png)
+![img1](https://raw.githubusercontent.com/DiaconuAndr3i/WebScraper/main/images/img1.png)
 
-![img2](https://github.com/DiaconuAndr3i/WebScraper#running-through-docker/images/img2.png)
+![img2](https://raw.githubusercontent.com/DiaconuAndr3i/WebScraper/main/images/img2.png)
