@@ -48,7 +48,7 @@ Download the image from docker hub
   docker pull andreiondocker/webscraper
 ```
 
-For creating a container from the image
+For creating a container from the docker image
 
 ```bash
   docker run -itd --name webscraper -p 3000:3000 andreiondocker/webscraper
