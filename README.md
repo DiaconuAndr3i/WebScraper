@@ -19,7 +19,7 @@ A small service api built with typescript and express for web service along with
 Clone the project
 
 ```bash
-  git clone https://github.com/DiaconuAndr3i/WebScraper#running-through-docker
+  git clone https://github.com/DiaconuAndr3i/WebScraper.git
 ```
 
 Go to the project directory
