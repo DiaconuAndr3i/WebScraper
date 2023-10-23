@@ -45,13 +45,13 @@ Start the server
 Download the image from docker hub
 
 ```bash
-  docker pull andreiondocker/web-scraper:1.0.0
+  docker pull andreiondocker/webscraper
 ```
 
 For creating a container from the image
 
 ```bash
-  docker run -itd --name webscraper -p 3000:3000 andreiondocker/web-scraper:1.0.0
+  docker run -itd --name webscraper -p 3000:3000 andreiondocker/webscraper
 ```
 
 ## Open web browser and type [localhost:3000](http://localhost:3000)
